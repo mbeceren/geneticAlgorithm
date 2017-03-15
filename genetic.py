@@ -51,3 +51,20 @@ def evolve(pop, hedef, retain=0.2, random_select=0.05, mutate=0.01):
             cocuklar.append(cocuk)
     parents.extend(cocuklar)
     return parents
+
+x = populasyon(100, 4, 0, 500)                                               
+hedef = 1250                                                         
+bireySayisi = 100                                                            
+b_length = 4                                                                 
+mini = 60                                                                    
+maxi = 451                                                                   
+iterasyon = 0                                                                
+p = populasyon(bireySayisi, b_length, mini, maxi)                            
+fitness_history = [grade(p, hedef)]                                          
+for i in xrange(1000):                                                       
+    p = evolve(p, hedef)                                                     
+    fitness_history.append(grade(p, hedef))                                  
+for a in fitness_history:                                                    
+    iterasyon += 1                                                           
+    if a == 0:                                                               
+        break                                                                
